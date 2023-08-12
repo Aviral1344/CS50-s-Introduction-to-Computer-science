@@ -17,7 +17,7 @@ int count_words(string text){
     int len = strlen(text);
     int count = 0;
     for(int i=0; i<len; i++){
-        if(text[i] == ' ' && (text[i-1] == '.' || text[i-1] == '!')){
+        if(text[i] == ' ' && (text[i-1] == '.' || text[i-1] == '!' || text[i-1] == '?')){
             continue;
         }
         if(text[i] == '.' || text[i] == '!' || text[i] == ' '){
@@ -48,8 +48,11 @@ int main(void)
 
     int len = strlen(text);
 
-    for(int i=0; i<len; i++){
-        if(text[i])
-    }
+    int L = count_letters(text);
+    int W = count_words(text);
+    int S = count_sentences(text);
+
+    int index = 0.0588 * L - 0.296*S - 15.8;
+
 
 }
