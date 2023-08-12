@@ -6,7 +6,7 @@ int count_letters(string text){
     int len = strlen(text);
     int count = 0;
     for(int i=0; i<len; i++){
-        if(text[i] >= 'a' && text[i] <= 'z' || text[i] >= 'A' && text[i] <= 'Z'){
+        if((text[i] >= 'a' && text[i] <= 'z' )|| (text[i] >= 'A' && text[i] <= 'Z')){
             count++;
         }
     }
