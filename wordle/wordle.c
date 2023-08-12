@@ -167,13 +167,13 @@ void print_word(string guess, int wordsize, int status[])
 
     for(int i=0; i<wordsize; i++){
         if(status[i] == EXACT){
-            printf(GREEN"%s"RESET"\n",guess[i]);
+            printf(GREEN"%c"RESET"\n",guess[i]);
         }
         else if(status[i] == CLOSE){
-            printf(YELLOW"%s"RESET"\n",guess[i]);
+            printf(YELLOW"%c"RESET"\n",guess[i]);
         }
         else{
-            printf(RED"%s"RESET"\n",guess[i]);
+            printf(RED"%c"RESET"\n",guess[i]);
         }
     }
     printf("\n");
