@@ -42,17 +42,13 @@ int main(void)
 {
     string text = get_string("Text: ");
 
-    int words = 0;
-    int letters = 0;
-    int sentences = 0;
-
     int len = strlen(text);
 
-    int Letters = count_letters(text);
-    int Words= count_words(text);
-    int Sentences = count_sentences(text);
+    int letters = count_letters(text);
+    int words= count_words(text);
+    int sentences = count_sentences(text);
 
-    double L = 100.0 * ((double)Letters/(double)words);
+    double L = 100.0 * ((double)letters/(double)words);
     double S = 100.0 * ((double)sentences/(double)words);
 
     double index = 0.0588 * L - 0.296 * S - 15.8;
@@ -64,7 +60,7 @@ int main(void)
         printf("Grade 16+");
     }
     else{
-        printf("Grade %d", (int)index);
+        printf("Grade %d\n", (int)index);
     }
 
     return 0;
