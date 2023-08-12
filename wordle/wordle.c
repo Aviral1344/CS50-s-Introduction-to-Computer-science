@@ -28,7 +28,8 @@ int main(int argc, string argv[])
     // ensure proper usage
     // TODO #1
     if(argc != 1){
-        printf("");
+        printf(stderr, "Usage: %s <directory> <filename>\n", argv[0]);
+        return 1;
         return 1;
     }
 
