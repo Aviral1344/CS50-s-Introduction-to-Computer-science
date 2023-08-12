@@ -32,7 +32,7 @@ int count_sentences(string text){
     int len = strlen(text);
     int count = 0;
     for(int i=0; i<len; i++){
-        if(text[i] == '.' || text[i] == '!' || text[i] == '?'){
+        if (i > 0 && (text[i] == '.' || text[i] == '!' || text[i] == '?') && isalnum(text[i - 1])){
             count++;
         }
     }
