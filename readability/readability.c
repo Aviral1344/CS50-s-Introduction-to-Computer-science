@@ -48,9 +48,12 @@ int main(void)
 
     int len = strlen(text);
 
-    int L = count_letters(text);
-    int W = count_words(text);
-    int S = count_sentences(text);
+    int Letters = count_letters(text);
+    int Words= count_words(text);
+    int Sentences = count_sentences(text);
+
+    double L = 100.0 * ((double)Letters/(double)words);
+    double S = 100.0 * ((double)sentences/(double)words);
 
     double index = 0.0588 * (double)L - 0.296 * (double)S - 15.8;
 
