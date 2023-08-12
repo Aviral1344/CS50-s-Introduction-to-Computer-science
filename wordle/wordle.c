@@ -27,7 +27,7 @@ int main(int argc, string argv[])
 {
     // ensure proper usage
     // TODO #1
-    if(argc != 1){
+    if(argc != 2){
         printf("Usage: %s wordsize\n", argv[0]);
         return 1;
     }
@@ -36,7 +36,9 @@ int main(int argc, string argv[])
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
     // TODO #2
-    if(argv)
+    if(argv[1] >= 5 || argv[1] <= 8){
+        wordsize = argv[1];
+    }
 
     // open correct file, each file has exactly LISTSIZE words
     char wl_filename[6];
