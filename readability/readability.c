@@ -21,7 +21,7 @@ int count_words(string text){
         if(text[i] == ' ' && (text[i-1] == '.' || text[i-1] == '!' || text[i-1] == '?')){
             continue;
         }
-        if(text[i] == '.' || text[i] == '!' || text[i] == ' '){
+        if(text[i] == '.' || text[i] == '!' || text[i] == '?' || text[i] == ' '){
             count++;
         }
     }
