@@ -75,7 +75,7 @@ int main(int argc, string argv[])
     printf("You have %i tries to guess the %i-letter word I'm thinking of\n", guesses, wordsize);
 
     // main game loop, one iteration for each guess
-    for (int i = 0; i < guesses; i++)
+    for (int i=0; i<guesses; i++)
     {
         // obtain user's guess
         string guess = get_guess(wordsize);
@@ -85,8 +85,8 @@ int main(int argc, string argv[])
 
         // set all elements of status array initially to 0, aka WRONG
         // TODO #4
-        for(int i=0; i<wordsize; i++){
-            status[wordsize] = 0;
+        for(int j=0; j<wordsize; j++){
+            status[j] = 0;
         }
 
 
@@ -123,7 +123,7 @@ string get_guess(int wordsize)
     // ensure users actually provide a guess that is the correct length
     // TODO #3
 
-    while(strlen(guess) != wordsize()){
+    while(strlen(guess) != wordsize){
         guess = get_string("Enter a %d letter word: ", wordsize);
     }
 
@@ -138,7 +138,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
     // TODO #5
 
     for(int i=0; i<wordsize; i++){
-        for(int j=0; j<wordsize(); j++){
+        for(int j=0; j<wordsize; j++){
             if(guess[i] == choice[j] && i == j){
                 status[i] = EXACT;
                 break;
@@ -165,7 +165,7 @@ void print_word(string guess, int wordsize, int status[])
     // print word character-for-character with correct color coding, then reset terminal font to normal
     // TODO #6
 
-    for(int i=0; i<n; i++){
+    for(int i=0; i<wordsize; i++){
         if(status[i] == EXACT){
             printf(GREEN, "%s\n" guess[i]);
         }
