@@ -57,10 +57,19 @@ int main(void)
         printf("Before Grade 1");
     }
     else if(index > 16.0){
-        printf("Grade 16+");
+        printf("Grade 16+\n");
     }
     else{
-        printf("Grade %d\n", (int)index);
+        int grd;
+        double x = index - (int)index;
+
+        if(x > 0.5){
+            grd = (int)index + 1;
+        }
+        else{
+            grd = (int)index;
+        }
+        printf("Grade %d\n", grd);
     }
 
     return 0;
