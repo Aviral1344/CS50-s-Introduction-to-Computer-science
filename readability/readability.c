@@ -55,7 +55,7 @@ int main(void)
     double L = 100.0 * ((double)Letters/(double)words);
     double S = 100.0 * ((double)sentences/(double)words);
 
-    double index = 0.0588 * (double)L - 0.296 * (double)S - 15.8;
+    double index = 0.0588 * L - 0.296 * S - 15.8;
 
     if(index < 1.0){
         printf("Before Grade 1");
