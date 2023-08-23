@@ -4,8 +4,8 @@ How do you know?: TODO
 
 sort2 uses: merge sort
 
-How do you know?: TODO
+How do you know?: its the fastest among all
 
-sort3 uses: Bubble sort
+sort3 uses: selection sort
 
 How do you know?: TODO
