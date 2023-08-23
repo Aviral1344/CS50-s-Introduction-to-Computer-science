@@ -64,10 +64,10 @@ int main(int argc, string argv[])
 }
 
 // Update vote totals given a new vote
-bool vote(string name)
+bool vote(string n)
 {
     for(int i=0; i<candidate_count; i++){
-        if(candidates[i].name == name){
+        if(candidates[i].name == n){
             candidates[i].votes++;
             return true;
         }
