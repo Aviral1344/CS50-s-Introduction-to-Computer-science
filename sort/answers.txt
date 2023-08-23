@@ -1,6 +1,6 @@
 sort1 uses: bubble
 
-How do you know?:
+How do you know?: takes the longest time
 
 sort2 uses: merge
 
@@ -8,4 +8,4 @@ How do you know?: its the fastest among all
 
 sort3 uses: selection
 
-How do you know?:
+How do you know?: similar time for random and reversed
