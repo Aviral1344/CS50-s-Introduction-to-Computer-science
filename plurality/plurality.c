@@ -56,7 +56,6 @@ int main(int argc, string argv[])
         if (!vote(name))
         {
             printf("Invalid vote.\n");
-            return 1;
         }
     }
 
