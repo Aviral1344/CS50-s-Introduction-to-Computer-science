@@ -203,7 +203,7 @@ void print_winner(void)
             if(locked[row][col] == true){
                 break;
             }
-            else if(col == candidate - 1){
+            else if(col == candidate_count - 1){
                 printf("%s", candidates[row]);
             }
         }
