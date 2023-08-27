@@ -157,11 +157,12 @@ void sort_pairs(void)
                 min_idx = j;
             }
         }
+        pair temp = pairs[min_idx];
+        pairs[min_idx] = pairs[i];
+        pairs[i] = temp;
     }
 
-    pair temp = pairs[min_idx];
-    pairs[min_idx] = pairs[i];
-    pairs[i] = temp;
+
     return;
 }
 
@@ -202,7 +203,7 @@ void print_winner(void)
             if(locked[row][col] == true){
                 break;
             }
-            else if(col == candidate - 1){
+            else if(col == candidates - 1){
                 printf("%s", candidates[row]);
             }
         }
