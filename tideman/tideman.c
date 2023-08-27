@@ -141,6 +141,20 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    for(int i=pair_count-1; i>=0; i--){
+        int min_wt = pair_weight(i);
+        int min_idx = i;
+        for(int j = i-1; j >= 0; j--){
+            if(pair_weight(j) < min_wt){
+                min_wt = pair_weight(j);
+                min_idx = j;
+            }
+        }
+    }
+
+    pair temp = pairs[min_idx];
+    pairs[min_idx] = pairs[i];
+    pairs[i] = temp;
     return;
 }
 
@@ -148,6 +162,7 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    
     return;
 }
 
