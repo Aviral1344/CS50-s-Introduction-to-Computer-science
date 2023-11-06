@@ -66,7 +66,9 @@ def validate_card(credit_card):
         elif first_digit == 4:
             print("VISA")
         else:
-            print("INVALID\n")
+            print("INVALID")
+    else:
+        print("INVALID")
 
 
 if __name__ == "__main__":
