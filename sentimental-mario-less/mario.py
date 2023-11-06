@@ -1,1 +1,1 @@
-# TODO
+n = int(input)
