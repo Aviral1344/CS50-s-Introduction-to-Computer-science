@@ -23,7 +23,7 @@ def get_card_num():
 
 def validate_card(credit_card):
     if len(credit_card) < 13 or 16 < len(credit_card):
-        print("INVALID")
+        print("INVALID\n")
         sys.exit(0)
 
     even, odd = 0, 0
