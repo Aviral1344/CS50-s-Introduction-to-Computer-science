@@ -1,71 +1,64 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int get_cents(void);
-int calculate_quarters(int cents);
-int calculate_dimes(int cents);
-int calculate_nickels(int cents);
-int calculate_pennies(int cents);
+#define BUFFER_SIZE 512
 
 int main(void)
 {
-    // Ask how many cents the customer is owed
-    int cents = get_cents();
+    // open memory card file
+    FILE* input = fopen("card.raw", "r");
+    if (input == NULL)
+    {
+        printf("Could not open card.raw.\n");
+        return 2;
+    }
 
-    // Calculate the number of quarters to give the customer
-    int quarters = calculate_quarters(cents);
-    cents = cents - quarters * 25;
+    // create buffer
+    unsigned char buffer[BUFFER_SIZE];
 
-    // Calculate the number of dimes to give the customer
-    int dimes = calculate_dimes(cents);
-    cents = cents - dimes * 10;
+    // filename counter
+    int filecount = 0;
 
-    // Calculate the number of nickels to give the customer
-    int nickels = calculate_nickels(cents);
-    cents = cents - nickels * 5;
+    FILE* picture = NULL;
 
-    // Calculate the number of pennies to give the customer
-    int pennies = calculate_pennies(cents);
-    cents = cents - pennies * 1;
+    // check if we've found a jpeg yet or not
+    int jpg_found = 0; //false
 
-    // Sum coins
-    int coins = quarters + dimes + nickels + pennies;
+    // go through cardfile until there aren't any blocks left
+    while (fread(buffer, BUFFER_SIZE, 1, input) == 1)
+    {
+        // read first 4 bytes of buffer and see if jpg signature using bitwise on last byte
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xe0) == 0xe0)
+        {
+            if (jpg_found == 1)
+            {
+                // We found the start of a new pic so close out current picture
+                fclose(picture);
+            }
+            else
+            {
+                // jpg discovered and now we have the green light to write
+                jpg_found = 1;
+            }
 
-    // Print total number of coins to give the customer
-    printf("%i\n", coins);
-}
+            char filename[8];
+            sprintf(filename, "%03d.jpg", filecount);
+            picture = fopen(filename, "a");
+            filecount++;
+        }
 
-int get_cents(void)
-{
-    int cents;
+        if (jpg_found == 1)
+        {
+            // write 512 bytes to file once we start finding jpgs
+            fwrite(&buffer, BUFFER_SIZE, 1, picture);
+        }
 
-    do {
-        cents = get_int("Change Owed: ");
-    } while (cents < 0);
+    }
 
-    return cents;
-}
+    // close files
+    fclose(input);
+    fclose(picture);
 
-int calculate_quarters(int cents)
-{
-    int quarters = cents / 25;
-    return quarters;
-}
-
-int calculate_dimes(int cents)
-{
-    int dimes = cents / 10;
-    return dimes;
-}
-
-int calculate_nickels(int cents)
-{
-    int nickels = cents / 5;
-    return nickels;
-}
-
-int calculate_pennies(int cents)
-{
-    int pennies = cents / 1;
-    return pennies;
+    return 0;
 }
